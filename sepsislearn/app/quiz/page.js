@@ -78,7 +78,7 @@ export default function Quiz () {
     
     <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <h1 className="text-4xl font-bold leading-10 tracking-tight text-gray-900 text-center pt-16">Sepsis Quiz</h1>
-    <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900 text-center pt-8">{currentUserScore} / 10</h2>
+    <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900 text-center pt-8">{currentUserScore} / {flashcards.length}</h2>
     <p className="text-md leading-10 tracking-tight text-gray-500 text-center pt-1 pb-2">{flashcards.length - currentCardIndex} remaining</p>
     
     <div className="fixed inset-0 z-10 w-screen overflow-y-auto mt-16">

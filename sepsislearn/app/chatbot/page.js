@@ -25,7 +25,7 @@ export default function ChatBot() {
         <div className="mt-16 max-w-md mx-auto p-6 rounded-lg shadow-md bg-white border-gray-300 border-2">
             <form onSubmit={handleSubmit} className="relative">
             <div>
-            <label htmlFor="userCategory" className="block text-sm font-medium leading-6 text-gray-900">I'm a...</label>
+            <label htmlFor="userCategory" className="block text-sm font-medium leading-6 text-gray-900">I am a...</label>
             <select id="userCategory" name="userCategory" className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6" value={userCategory} onChange={(e) => setUserCategory(e.target.value)}>
                 <option>Parent</option>
                 <option>Child</option>

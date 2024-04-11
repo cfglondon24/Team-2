@@ -16,6 +16,8 @@ questions = {
         "For adults, symptomns of sepsis may also include severe breathlessness, discloured skin and feeling like you are going to die. Children with sepsis may experience fast breathing, convulsions, looking pale or feeling very cold to touch",
         "https://sepsistrust.org/the-importance-of-asking-could-it-be-sepsis/",
     ],
+}
+"""
     "Not everyone can develop sepsis.": [
         False,
         "Anyone with an infection can get sepsis. People with weakened immune systems, people who have recently had surgery or women who have just given birth may be more suspectible to developing sespis",
@@ -50,8 +52,7 @@ questions = {
         False,
         "Sepsis is indiscriminate: whilst it primarily affects very young children and older adults and is more common in people with underlying health conditions, it can also be triggered in people who are otherwise fit and healthy",
         "https://sepsistrust.org/about/about-sepsis/faqs/",
-    ],
-}
+    ],"""
 
 connection = sqlite3.connect("database.db")
 
