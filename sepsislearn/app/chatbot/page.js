@@ -6,12 +6,13 @@ import axios from 'axios';
 export default function ChatBot() {
     const [message, setMessage] = useState('');
     const [response, setResponse] = useState('');
+    const [userCategory, setUserCategory] = useState('Child');
 
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent the form from refreshing the page
         try {
             // Send the message to the chatbot API and store the response
-            const apiResponse = await axios.post('http://127.0.0.1:3000/api/chatbot', { message });
+            const apiResponse = await axios.post('http://127.0.0.1:3000/api/chatbot', { message, user_category: userCategory });
             setResponse(apiResponse.data.reply);
         } catch (error) {
             console.error('Error fetching chatbot response:', error);
@@ -23,7 +24,15 @@ export default function ChatBot() {
         <h1 className="text-4xl font-bold leading-10 tracking-tight text-gray-900 text-center pt-16">Sepsis Chatbot</h1> 
         <div className="mt-16 max-w-md mx-auto p-6 rounded-lg shadow-md bg-white border-gray-300 border-2">
             <form onSubmit={handleSubmit} className="relative">
-                <div className="overflow-hidden rounded-lg border border-gray-300">
+            <div>
+            <label htmlFor="userCategory" className="block text-sm font-medium leading-6 text-gray-900">I'm a...</label>
+            <select id="userCategory" name="userCategory" className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6" value={userCategory} onChange={(e) => setUserCategory(e.target.value)}>
+                <option>Parent</option>
+                <option>Child</option>
+            </select>
+            </div>
+                <div className="overflow-hidden rounded-lg border border-gray-300 mt-4">
+                    
                     <label htmlFor="question" className="sr-only">Question</label>
                     <input
                         type="text"

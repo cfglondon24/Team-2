@@ -11,6 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-white">
+      <head><link rel="icon" href="/favicon.ico" sizes="any" /></head>
       <body className={inter.className}>{children}</body>
     </html>
   );

@@ -17,7 +17,7 @@ def get_db_connection():
 def api():
     connection = get_db_connection()
     flashcards_list = connection.execute(
-        "SELECT id, question, answer, extra_info FROM flashcards"
+        "SELECT id, question, answer, extra_info, extra_url FROM flashcards"
     ).fetchall()
     connection.close()
 
@@ -29,6 +29,7 @@ def api():
                 "question": flashcard[1],
                 "answer": flashcard[2],
                 "extra_info": flashcard[3],
+                "extra_url": flashcard[4],
             }
             for flashcard in flashcards_list
         ],
@@ -38,9 +39,9 @@ def api():
 @app.route("/api/chatbot", methods=["POST"])
 def chatbot():
     user_message = request.json["message"]
-    # current_question = request.json["current_question"]
+    user_category = request.json["user_category"]
 
-    return jsonify(status=200, reply=generate_text(user_message))
+    return jsonify(status=200, reply=generate_text(user_message, user_category))
 
 
 if __name__ == "__main__":
