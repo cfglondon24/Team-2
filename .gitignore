@@ -1,3 +1,6 @@
 Team-2/
 .env
 sepsislearn/node_modules/
+utils.py
+__pycache__/
+.env
